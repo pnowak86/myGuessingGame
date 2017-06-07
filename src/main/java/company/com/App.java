@@ -1,6 +1,8 @@
 package company.com;
 
-public class App 
+import java.util.Random;
+
+public class App
 {
     public static void main( String[] args )
     {

@@ -9,6 +9,25 @@ public class HumanPlayer {
     Random random = new Random();
     Scanner sc = new Scanner(System.in);
     int numberOfTryies = 0;
+    int guessMin = 1;
+    int guessMax = 100;
+
+    public int getGuessMin() {
+        return guessMin;
+    }
+
+    public int getGuessMax() {
+        return guessMax;
+    }
+
+
+    public void setGuessMin(int guessMin) {
+        this.guessMin = guessMin;
+    }
+
+    public void setGuessMax(int guessMax) {
+        this.guessMax = guessMax;
+    }
 
     public int getNumberOfTryies() {
         return numberOfTryies;
@@ -32,26 +51,35 @@ public class HumanPlayer {
             HumanPlayer player = new HumanPlayer();
         }
 
+        setGuessMax(100);
+        setGuessMin(1);
+
         guessing();
 
-        Game game = new Game();
+        Game game= new Game();
 
     }
-    public void guessing(){
-        numberOfTryies++;
-        int guess = random.nextInt(100) + 1;
-        System.out.println("I guess, that you have chose number " + guess);
-        String answer = sc.next();
 
-        if (answer.equals("no")){
+    public void guessing() {
+        numberOfTryies++;
+        int guess = random.nextInt(getGuessMax()-getGuessMin() + 1) + getGuessMin();
+        System.out.println("I guess, that you picked " + guess);
+
+
+        System.out.println("more / less: ");
+        String answer = sc.next();
+        if (answer.equals("more")) {
+            setGuessMin(guess);
             guessing();
-        }else if (answer.equals("yes")){
-            System.out.println("Oh yeah! Suck my balls!:D After " + getNumberOfTryies() + " shots!");
+        } else if (answer.equals("less")) {
+            setGuessMax(guess);
+            guessing();
+        } else if (answer.equals("yes")) {
+            System.out.println("Oh yeah! I did it! After " + getNumberOfTryies() + " shots!");
+        }else{
+            System.out.println("Thats not a proper answer, you black asshole! ");
+            guessing();
         }
 
-    }
-    public int computersChoice(){
-
-        return random.nextInt();
     }
 }

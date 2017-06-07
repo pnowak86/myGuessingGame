@@ -26,6 +26,7 @@ public class CPU {
         System.out.println("Guess which number from 0 to 100 i am thinking of? ");
         guessing();
         Game game = new Game();
+
     }
 
     public void guessing() {
@@ -37,8 +38,8 @@ public class CPU {
         }
 
         if (answer == cpuNumber) {
-            System.out.println("You've guessed! You've cheated " +
-                    "you piece of shit! It's impossible after " + getNumberOfTryies() + " tryies!");
+            System.out.println("You've guessed! You've cheated! It's impossible after "
+                    + getNumberOfTryies() + " tryies!");
         } else if (answer > cpuNumber) {
             System.out.println("Haha! TOO MUCH! Guess again you asshole! ");
             numberOfTryies++;
