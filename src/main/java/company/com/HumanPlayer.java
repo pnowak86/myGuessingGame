@@ -66,7 +66,7 @@ public class HumanPlayer {
         System.out.println("I guess, that you picked " + guess);
 
 
-        System.out.println("more / less: ");
+        System.out.println("more / less / yes: ");
         String answer = sc.next();
         if (answer.equals("more")) {
             setGuessMin(guess);

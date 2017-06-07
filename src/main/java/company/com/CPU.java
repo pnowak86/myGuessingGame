@@ -39,7 +39,7 @@ public class CPU {
 
         if (answer == cpuNumber) {
             System.out.println("You've guessed! You've cheated! It's impossible after "
-                    + getNumberOfTryies() + " tryies!");
+                    + getNumberOfTryies() + " tries!");
         } else if (answer > cpuNumber) {
             System.out.println("Haha! TOO MUCH! Guess again you asshole! ");
             numberOfTryies++;
