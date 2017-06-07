@@ -37,10 +37,6 @@ public class HumanPlayer {
         Game game = new Game();
 
     }
-
-    public int computersChoice(){
-        return 0;
-    }
     public void guessing(){
         numberOfTryies++;
         int guess = random.nextInt(100) + 1;
@@ -53,5 +49,9 @@ public class HumanPlayer {
             System.out.println("Oh yeah! Suck my balls!:D After " + getNumberOfTryies() + " shots!");
         }
 
+    }
+    public int computersChoice(){
+
+        return random.nextInt();
     }
 }
