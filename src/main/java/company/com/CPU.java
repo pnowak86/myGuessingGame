@@ -1,5 +1,6 @@
 package company.com;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -20,11 +21,13 @@ public class CPU {
     int numberOfTryies = 1;
     int cpuNumber = random.nextInt(100) + 1;
 
-    public CPU() {
+    public CPU() throws IOException {
 
 
         System.out.println("Guess which number from 0 to 100 i am thinking of? ");
+
         guessing();
+
         Game game = new Game();
 
     }
@@ -32,8 +35,8 @@ public class CPU {
     public void guessing() {
         int answer = 0;
         try {
-           answer  = sc.nextInt();
-        }catch (InputMismatchException e){
+            answer = sc.nextInt();
+        } catch (InputMismatchException e) {
             System.out.println();
         }
 

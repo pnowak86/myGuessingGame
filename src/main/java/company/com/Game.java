@@ -1,5 +1,9 @@
 package company.com;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,7 +11,7 @@ public class Game {
 
     Scanner sc = new Scanner(System.in);
 
-    public Game() {
+    public Game() throws IOException {
 
 
         System.out.println();
@@ -16,14 +20,14 @@ public class Game {
         System.out.println("2. CPU");
         System.out.println("3. exit");
         int choice = 0;
-        try{
+        try {
             choice = sc.nextInt();
-        }catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("What? Are you blind? ");
             Game game = new Game();
         }
 
-        if (choice>3 || choice < 0){
+        if (choice > 3 || choice < 0) {
             System.out.println("What are you stupid? ");
             Game game = new Game();
         }
@@ -36,7 +40,8 @@ public class Game {
                 CPU cpu = new CPU();
             }
             case 3: {
-                System.out.println("------> https://youtu.be/I0LqPdEpK_w?t=6s <------");
+
+                Desktop.getDesktop().browse(URI.create("http://www.pown.it/1471"));
                 break;
             }
 

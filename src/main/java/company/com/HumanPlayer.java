@@ -1,5 +1,6 @@
 package company.com;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -37,7 +38,7 @@ public class HumanPlayer {
         this.numberOfTryies = numberOfTryies;
     }
 
-    public HumanPlayer() {
+    public HumanPlayer() throws IOException {
 
         System.out.println("Pick your number from 0 to 100: ");
 
@@ -56,27 +57,27 @@ public class HumanPlayer {
 
         guessing();
 
-        Game game= new Game();
+        Game game = new Game();
 
     }
 
     public void guessing() {
         numberOfTryies++;
-        int guess = random.nextInt(getGuessMax()-getGuessMin() + 1) + getGuessMin();
+        int guess = random.nextInt(getGuessMax() - getGuessMin() + 1) + getGuessMin();
         System.out.println("I guess, that you picked " + guess);
 
 
         System.out.println("more / less / yes: ");
         String answer = sc.next();
         if (answer.equals("more")) {
-            setGuessMin(guess);
+            setGuessMin(guess + 1);
             guessing();
         } else if (answer.equals("less")) {
-            setGuessMax(guess);
+            setGuessMax(guess - 1);
             guessing();
         } else if (answer.equals("yes")) {
             System.out.println("Oh yeah! I did it! After " + getNumberOfTryies() + " shots!");
-        }else{
+        } else {
             System.out.println("Thats not a proper answer, you black asshole! ");
             guessing();
         }
